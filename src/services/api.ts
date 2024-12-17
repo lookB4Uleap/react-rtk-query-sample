@@ -14,7 +14,7 @@ export const api = createApi({
       query: () => 'users',
       providesTags: ['users'], // provide tag to auto refetch on invalidate
     }),
-    getSpecificUser: builder.query<any, { id: string }>({
+    getSpecificUser: builder.query<any, string>({
       query: (id) => `users/${id}`,
     }),
     createUser: builder.mutation<any, { data: string }>({

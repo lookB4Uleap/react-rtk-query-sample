@@ -5,7 +5,7 @@ export const FetchSpecificUser = () => {
   const [userId, setUserId] = useState('');
   const [trigger, { data, isLoading, error }] = useLazyGetSpecificUserQuery();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     trigger(userId);
   };

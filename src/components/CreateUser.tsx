@@ -5,12 +5,8 @@ export const CreateUser = () => {
   const [data, setData] = useState('');
   const [createUser, { data: response, isLoading, error }] =
     useCreateUserMutation();
-  const [
-    fetchUsers,
-    { data: users, isLoading: isUsersLoading, error: fetchingUserError },
-  ] = useLazyGetUsersQuery();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     await createUser({
       data,
